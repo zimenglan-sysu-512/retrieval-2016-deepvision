@@ -42,7 +42,8 @@ class Visualization():
 		print "dataset:",        self.dataset
 		print "image_path:",     self.image_path
 		print "class_scores:",   self.class_scores
-		print "queries:", 			 self.queries
+		print "queries:"
+		print             			 self.queries
 		print "rankings_dir:",   self.rankings_dir
 		print "size_box:",       self.size_box
 		print "stage:",          self.stage
@@ -50,7 +51,8 @@ class Visualization():
 		print "figsize:",        self.figsize
 		print "figures_path:",   self.figures_path
 		print "reranking_path:", self.reranking_path
-		print "query_names:",    self.query_names
+		print "query_names:"
+		print 									 self.query_names
 		print "ground_truth:",   self.ground_truth
 		print "\n\n"
 
@@ -131,11 +133,11 @@ class Visualization():
 		
 		ranking 	  = self.read_ranking(query)
 
-		query_name  = self.ground_truth,os.path.basename(query).split('_query.txt')[0]
+		query_name  = os.path.basename(query).split('_query.txt')[0]
 		print "query_name:", query_name
-		junk        = np.loadtxt(os.path.join(query_name + '_junk.txt'),dtype="str")
-		ok          = np.loadtxt(os.path.join(query_name + '_ok.txt'),dtype = "str")
-		good        = np.loadtxt(os.path.join(query_name + '_good.txt'),dtype = "str")
+		junk        = np.loadtxt(os.path.join(self.ground_truth, query_name + '_junk.txt'), dtype="str")
+		ok          = np.loadtxt(os.path.join(self.ground_truth, query_name + '_ok.txt'),   dtype = "str")
+		good        = np.loadtxt(os.path.join(self.ground_truth, query_name + '_good.txt'), dtype = "str")
 		
 		if self.stage is 'rerank':
 			with open(os.path.join(self.reranking_path,os.path.basename(query.split('_query')[0]) + '.pkl') ,'rb') as f:
