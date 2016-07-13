@@ -155,7 +155,7 @@ class Ranker():
 					self.query_feats[i, :] += feat
 
 			# find feature and add to query
-			i+=1
+			i += 1
 
 		self.query_feats = normalize(self.query_feats)
 
@@ -164,7 +164,7 @@ class Ranker():
 		i = 0
 
 		for query in self.query_names:
-			scores   = final_scores[i,:]
+			scores   = final_scores[i, :]
 
 			ranking  = np.array(self.database_list)[np.argsort(scores)]
 			savefile = open(os.path.join(self.rankings_dir, os.path.basename(query.split('_query')[0]) +'.txt'), 'w')
