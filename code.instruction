@@ -1,0 +1,29 @@
+---
+URL
+	
+	http://imatge-upc.github.io/retrieval-2016-deepvision/
+	
+---
+Code Instructions
+
+	This python repository contains the necessary tools to reproduce the retrieval pipeline based on off-the-shelf Faster R-CNN features.
+
+---
+Setup
+
+	1 You need to download and install Faster R-CNN python implementation by Ross Girshick. 
+	2 Point params['fast_rcnn_path'] to the Faster R-CNN root path in params.py.
+	3 Download Oxford and Paris Buildings datasets. 
+	  There are scripts under `data/images/paris` and `data/images/oxford/` that will do that for you.
+	4 Download Faster R-CNN models by running `data/models/fetch_models.sh`.
+
+---
+Usage
+
+	1 Data preparation. Run `read_data.py` to create the lists of query and database images. 
+		Run this twice changing params['dataset'] to 'oxford' and 'paris'.
+	2 Feature Extraction. Run `features.py` to extract Fast R-CNN features for all images in a dataset and store them to disk.
+  3 Ranking. Run `ranker.py` to generate and store the rankings for the queries of the chosen dataset.
+	4 Rerank based on region features by running `rerank.py`.
+	5 Evaluation. Run `eval.py` to obtain the Average Precision.
+	6 Visualization. Run `vis.py `populate data/figures with the visualization of the top generated rankings for each query.

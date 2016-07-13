@@ -1,0 +1,13 @@
+*.pkl
+*.jpg
+*.png
+*.jpeg
+*.pyc
+features/*
+figure/*
+pca/*
+imageslists/*
+images/*
+models/*.caffemodel
+rankings/*
+reranking/*
